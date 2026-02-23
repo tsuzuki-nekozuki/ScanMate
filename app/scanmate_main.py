@@ -1,12 +1,34 @@
 import argparse
+import importlib
+import pkgutil
+
+import modes
+from modes.mode_task_register import get_task
+from app.scanmate_controller import ScanMateController
+from app.scanmate_parameters import ScanMateParameters
+
+
+bin
+
+
+def import_all_modes():
+    for module_info in pkgutil.iter_modules(modes.__path__):
+        importlib.import_module(f'modes.{module_info.name}')
 
 
 class ScanMateMain:
     def __init__(self):
-        pass
+        self.controller = ScanMateController()
+        self.params = ScanMateParameters()
 
     def run(self):
-        mode, task, config_task = self._parse_args()
+        mode, task, config_file = self._parse_args()
+
+        import_all_modes()
+
+        func = get_task(mode, task)
+
+        self.params.read_config(config_file)
 
     def _parse_args(self) -> tuple[str, str, str]:
         parser = argparse.ArgumentParser(
