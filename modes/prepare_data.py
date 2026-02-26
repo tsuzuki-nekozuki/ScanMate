@@ -1,8 +1,9 @@
 from modes.mode_task_register import register_task
+from parameters.generator_configs import BarcodeGeneratorConfig
 
 
 @register_task('prepare_data', 'generator')
-def prepare_generator(args, config):
+def prepare_generator(config: BarcodeGeneratorConfig):
     print('Running data generator...')
 
     return {'status': 'done', 'task': 'generator'}

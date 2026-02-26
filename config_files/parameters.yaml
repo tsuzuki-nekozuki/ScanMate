@@ -1,0 +1,5 @@
+prepare_data:
+  generator:
+    db_name: 'data.db'
+    n_data: 100
+    img_dir: 'data/barcodes'
