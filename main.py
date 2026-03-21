@@ -1,6 +1,6 @@
 import sys
 
-from app.scanmate_main import ScanMateMain
+from scan_mate.app.scanmate_main import ScanMateMain
 
 
 def main():

@@ -1,6 +1,6 @@
 import yaml
 
-from parameters.generator_configs import BarcodeGeneratorConfig
+from scan_mate.parameters.generator_configs import BarcodeGeneratorConfig
 
 
 class ScanMateParameters:
@@ -11,15 +11,15 @@ class ScanMateParameters:
                     task: str = None) -> None | dict:
         with open(config_path, mode='r', encoding='utf-8') as f:
             self.params_dict = yaml.safe_load(f)
-
         task_params = self.params_dict.get(mode, {}).get(task)
         if mode is None or task is None or task_params is None:
             return None
 
-        cfg = None
+        # cfg = None
         match (mode, task):
             case ('prepare_data', 'generator'):
                 cfg = BarcodeGeneratorConfig()
 
+        print(task_params)
         cfg.set_config_from_dict(task_params)
         return cfg

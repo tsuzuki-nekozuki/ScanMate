@@ -1,14 +1,14 @@
 import importlib
 import pkgutil
 
-import modes
-from modes.mode_task_register import get_task
-from parameters.base_config import BaseConfig
+import scan_mate.modes
+from scan_mate.modes.mode_task_register import get_task
+from scan_mate.parameters.base_config import BaseConfig
 
 
 def import_all_modes():
-    for module_info in pkgutil.iter_modules(modes.__path__):
-        importlib.import_module(f'modes.{module_info.name}')
+    for module_info in pkgutil.iter_modules(scan_mate.modes.__path__):
+        importlib.import_module(f'scan_mate.modes.{module_info.name}')
 
 
 class ScanMateController:
@@ -16,7 +16,7 @@ class ScanMateController:
         self.mode: str = None
         self.task: str = None
 
-    def run(self, mode: str, task: str, params: BaseConfig):
+    def dispatch(self, mode: str, task: str, params: BaseConfig):
         self.mode = mode
         self.task = task
 

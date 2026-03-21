@@ -1,4 +1,4 @@
-from modes.mode_task_register import register_task
+from scan_mate.modes.mode_task_register import register_task
 
 
 @register_task('train', 'detector')

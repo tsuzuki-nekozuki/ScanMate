@@ -1,7 +1,7 @@
 import argparse
 
-from app.scanmate_controller import ScanMateController
-from app.scanmate_parameters import ScanMateParameters
+from scan_mate.app.scanmate_controller import ScanMateController
+from scan_mate.app.scanmate_parameters import ScanMateParameters
 
 
 class ScanMateMain:

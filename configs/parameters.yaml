@@ -1,5 +1,5 @@
 prepare_data:
   generator:
-    db_name: 'data.db'
+    db_name: 'data/data.db'
     n_data: 100
-    img_dir: 'data/barcodes'
+    root_dir: 'data'

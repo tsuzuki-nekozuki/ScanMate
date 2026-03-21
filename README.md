@@ -49,10 +49,6 @@ class Tester{
 
 }
 
-class DatasetGenerator{
-
-}
-
 class DataManager{
 
 }
@@ -110,7 +106,7 @@ ScanMateMain <-- ScanMateController
 ScanMateController <-- Trainer
 ScanMateController <-- Infer
 ScanMateController <-- Tester
-ScanMateController <-- DatasetGenerator
+ScanMateController <-- GeneratorManager
 Parameters <-- TrainingConfig
 Parameters <-- InferenceConfig
 Parameters <-- TestingConfig
@@ -132,7 +128,6 @@ ModelManager <-- BarcodeDecoder
 ModelManager <-- CleanerModel
 ModelManager <-- RectifierModel
 ModelManager <-- DetectorModel
-DatasetGenerator <-- GeneratorManager
 BaseModel <|-- CleanerModel
 BaseModel <|-- RectifierModel
 BaseModel <|-- DetectorModel
