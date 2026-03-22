@@ -1,6 +1,7 @@
 import yaml
 
 from scan_mate.parameters.generator_configs import BarcodeGeneratorConfig
+from scan_mate.parameters.inference_configs import InferenceConfig
 
 
 class ScanMateParameters:
@@ -15,11 +16,12 @@ class ScanMateParameters:
         if mode is None or task is None or task_params is None:
             return None
 
-        # cfg = None
+        cfg = None
         match (mode, task):
             case ('prepare_data', 'generator'):
                 cfg = BarcodeGeneratorConfig()
+            case ('infer', 'picture'):
+                cfg = InferenceConfig()
 
-        print(task_params)
         cfg.set_config_from_dict(task_params)
         return cfg

@@ -3,3 +3,8 @@ prepare_data:
     db_name: 'data/data.db'
     n_data: 100
     root_dir: 'data'
+infer:
+  picture:
+    data:
+      - 'data/barcodes/train/code_00000000.png'
+      - 'data/barcodes/train/code_00000001.png'
